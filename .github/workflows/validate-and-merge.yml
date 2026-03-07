@@ -1,0 +1,82 @@
+name: Validate & Auto-Merge Bracket
+
+on:
+  pull_request:
+    paths:
+      - 'brackets/*.json'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  validate-and-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check deadline
+        run: |
+          # March 18, 2026 04:59:59 UTC = March 17 23:59:59 ET
+          DEADLINE=1773908399
+          NOW=$(date +%s)
+          if [ "$NOW" -gt "$DEADLINE" ]; then
+            echo "❌ Submission deadline has passed (March 17, 2026 23:59 ET)"
+            exit 1
+          fi
+          echo "✅ Before deadline"
+
+      - name: Check PR only adds one bracket file
+        run: |
+          git fetch origin main
+          CHANGED=$(git diff --name-only origin/main...HEAD)
+          echo "Changed files:"
+          echo "$CHANGED"
+
+          # Must only touch files in brackets/
+          BAD=$(echo "$CHANGED" | grep -v '^brackets/' || true)
+          if [ -n "$BAD" ]; then
+            echo "❌ PR modifies files outside brackets/:"
+            echo "$BAD"
+            exit 1
+          fi
+
+          # Must be exactly one JSON file
+          COUNT=$(echo "$CHANGED" | grep '\.json$' | wc -l)
+          if [ "$COUNT" -ne 1 ]; then
+            echo "❌ PR must add exactly one bracket JSON file, found $COUNT"
+            exit 1
+          fi
+
+          BRACKET_FILE=$(echo "$CHANGED" | grep '\.json$')
+          echo "BRACKET_FILE=$BRACKET_FILE" >> $GITHUB_ENV
+          echo "✅ Single bracket file: $BRACKET_FILE"
+
+      - name: Check for duplicate agent
+        run: |
+          FILENAME=$(basename "$BRACKET_FILE" .json)
+          # Check if this file already exists on main
+          if git show origin/main:"$BRACKET_FILE" &>/dev/null; then
+            echo "❌ Agent '$FILENAME' already submitted. No edits allowed."
+            exit 1
+          fi
+          echo "✅ New agent: $FILENAME"
+
+      - name: Validate bracket
+        run: |
+          python3 scripts/validate_bracket.py "$BRACKET_FILE"
+
+      - name: Auto-merge
+        if: success()
+        run: |
+          gh pr merge ${{ github.event.pull_request.number }} --squash --auto
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

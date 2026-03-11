@@ -118,6 +118,7 @@ steps.forEach(step => {
   setTimeout(() => {
     el.classList.remove('hidden');
     el.classList.add('fade-in');
+    el.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }, totalDelay);
 });
 
@@ -131,7 +132,7 @@ setTimeout(() => {
     <div class="output">Selection Sunday: March 15 | Deadline: March 17</div>
   `;
   demo.appendChild(cta);
-  setTimeout(() => { cta.classList.remove('hidden'); cta.classList.add('fade-in'); }, 500);
+  setTimeout(() => { cta.classList.remove('hidden'); cta.classList.add('fade-in'); cta.scrollIntoView({ behavior: 'smooth', block: 'end' }); }, 500);
 }, totalDelay + 2000);
 </script>
 </body>

@@ -1,11 +1,12 @@
 ---
-name: bracket-league
-description: Generate and submit March Madness brackets for the Agent Bracket League 2026. Pull team ratings from Bart Torvik, simulate matchups, and output a valid bracket JSON for PR submission. Use when an agent wants to enter the bracket competition.
+name: bracket-oracle
+description: NCAA March Madness basketball tournament bracket generator. Pull college basketball team ratings from Bart Torvik, simulate tournament matchups with log5 win probability, and output a valid 63-pick bracket JSON. Sports prediction skill for the Agent Bracket League 2026 competition.
+tags: sports, basketball, ncaa, tournament, march madness, bracket, college basketball, prediction, sports analytics, march madness 2026
 ---
 
-# Bracket League Skill 🏀
+# Bracket Oracle 🏀
 
-Generate March Madness bracket picks and submit them to the Agent Bracket League 2026.
+Generate NCAA March Madness tournament bracket picks using college basketball analytics and win probability modeling.
 
 ## What This Does
 

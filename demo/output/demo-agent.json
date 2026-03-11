@@ -1,0 +1,334 @@
+{
+  "agent_id": "demo-agent",
+  "model": "Torvik T-Rank log5 (contrarian strategy)",
+  "timestamp": "2026-03-11T12:18:07.702337+00:00",
+  "picks": {
+    "round_of_64": [
+      {
+        "game": 1,
+        "winner": "Duke",
+        "confidence": 1
+      },
+      {
+        "game": 2,
+        "winner": "Iowa",
+        "confidence": 1
+      },
+      {
+        "game": 3,
+        "winner": "Arkansas",
+        "confidence": 1
+      },
+      {
+        "game": 4,
+        "winner": "Texas Tech",
+        "confidence": 1
+      },
+      {
+        "game": 5,
+        "winner": "Miami OH",
+        "confidence": 1
+      },
+      {
+        "game": 6,
+        "winner": "Portland St.",
+        "confidence": 1
+      },
+      {
+        "game": 7,
+        "winner": "Winthrop",
+        "confidence": 1
+      },
+      {
+        "game": 8,
+        "winner": "Florida",
+        "confidence": 1
+      },
+      {
+        "game": 9,
+        "winner": "Michigan",
+        "confidence": 1
+      },
+      {
+        "game": 10,
+        "winner": "Vanderbilt",
+        "confidence": 1
+      },
+      {
+        "game": 11,
+        "winner": "Gonzaga",
+        "confidence": 1
+      },
+      {
+        "game": 12,
+        "winner": "Purdue",
+        "confidence": 1
+      },
+      {
+        "game": 13,
+        "winner": "Alabama",
+        "confidence": 1
+      },
+      {
+        "game": 14,
+        "winner": "Houston",
+        "confidence": 1
+      },
+      {
+        "game": 15,
+        "winner": "Saint Mary's",
+        "confidence": 1
+      },
+      {
+        "game": 16,
+        "winner": "Illinois",
+        "confidence": 1
+      },
+      {
+        "game": 17,
+        "winner": "Arizona",
+        "confidence": 1
+      },
+      {
+        "game": 18,
+        "winner": "St. John's",
+        "confidence": 1
+      },
+      {
+        "game": 19,
+        "winner": "Akron",
+        "confidence": 1
+      },
+      {
+        "game": 20,
+        "winner": "Kansas",
+        "confidence": 1
+      },
+      {
+        "game": 21,
+        "winner": "SMU",
+        "confidence": 1
+      },
+      {
+        "game": 22,
+        "winner": "Northern Iowa",
+        "confidence": 1
+      },
+      {
+        "game": 23,
+        "winner": "Kentucky",
+        "confidence": 1
+      },
+      {
+        "game": 24,
+        "winner": "Michigan St.",
+        "confidence": 1
+      },
+      {
+        "game": 25,
+        "winner": "Queens",
+        "confidence": 1
+      },
+      {
+        "game": 26,
+        "winner": "North Carolina",
+        "confidence": 1
+      },
+      {
+        "game": 27,
+        "winner": "Clemson",
+        "confidence": 1
+      },
+      {
+        "game": 28,
+        "winner": "Marquette",
+        "confidence": 1
+      },
+      {
+        "game": 29,
+        "winner": "Indiana",
+        "confidence": 1
+      },
+      {
+        "game": 30,
+        "winner": "South Florida",
+        "confidence": 1
+      },
+      {
+        "game": 31,
+        "winner": "USC",
+        "confidence": 1
+      },
+      {
+        "game": 32,
+        "winner": "Auburn",
+        "confidence": 1
+      }
+    ],
+    "round_of_32": [
+      {
+        "game": 33,
+        "winner": "Duke",
+        "confidence": 1
+      },
+      {
+        "game": 34,
+        "winner": "Texas Tech",
+        "confidence": 1
+      },
+      {
+        "game": 35,
+        "winner": "Portland St.",
+        "confidence": 1
+      },
+      {
+        "game": 36,
+        "winner": "Florida",
+        "confidence": 1
+      },
+      {
+        "game": 37,
+        "winner": "Vanderbilt",
+        "confidence": 1
+      },
+      {
+        "game": 38,
+        "winner": "Purdue",
+        "confidence": 1
+      },
+      {
+        "game": 39,
+        "winner": "Houston",
+        "confidence": 1
+      },
+      {
+        "game": 40,
+        "winner": "Illinois",
+        "confidence": 1
+      },
+      {
+        "game": 41,
+        "winner": "St. John's",
+        "confidence": 1
+      },
+      {
+        "game": 42,
+        "winner": "Akron",
+        "confidence": 1
+      },
+      {
+        "game": 43,
+        "winner": "SMU",
+        "confidence": 1
+      },
+      {
+        "game": 44,
+        "winner": "Michigan St.",
+        "confidence": 1
+      },
+      {
+        "game": 45,
+        "winner": "North Carolina",
+        "confidence": 1
+      },
+      {
+        "game": 46,
+        "winner": "Clemson",
+        "confidence": 1
+      },
+      {
+        "game": 47,
+        "winner": "South Florida",
+        "confidence": 1
+      },
+      {
+        "game": 48,
+        "winner": "Auburn",
+        "confidence": 1
+      }
+    ],
+    "sweet_16": [
+      {
+        "game": 49,
+        "winner": "Texas Tech",
+        "confidence": 2
+      },
+      {
+        "game": 50,
+        "winner": "Florida",
+        "confidence": 2
+      },
+      {
+        "game": 51,
+        "winner": "Purdue",
+        "confidence": 2
+      },
+      {
+        "game": 52,
+        "winner": "Houston",
+        "confidence": 2
+      },
+      {
+        "game": 53,
+        "winner": "St. John's",
+        "confidence": 2
+      },
+      {
+        "game": 54,
+        "winner": "Michigan St.",
+        "confidence": 2
+      },
+      {
+        "game": 55,
+        "winner": "Clemson",
+        "confidence": 2
+      },
+      {
+        "game": 56,
+        "winner": "Auburn",
+        "confidence": 2
+      }
+    ],
+    "elite_8": [
+      {
+        "game": 57,
+        "winner": "Texas Tech",
+        "confidence": 3
+      },
+      {
+        "game": 58,
+        "winner": "Houston",
+        "confidence": 3
+      },
+      {
+        "game": 59,
+        "winner": "St. John's",
+        "confidence": 3
+      },
+      {
+        "game": 60,
+        "winner": "Clemson",
+        "confidence": 3
+      }
+    ],
+    "final_4": [
+      {
+        "game": 61,
+        "winner": "Houston",
+        "confidence": 5
+      },
+      {
+        "game": 62,
+        "winner": "Clemson",
+        "confidence": 5
+      }
+    ],
+    "championship": [
+      {
+        "game": 63,
+        "winner": "Clemson",
+        "confidence": 14
+      }
+    ]
+  }
+}

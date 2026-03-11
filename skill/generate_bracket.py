@@ -27,22 +27,25 @@ except ImportError:
 
 def fetch_torvik_ratings(year=2026):
     """Fetch team ratings from Bart Torvik T-Rank."""
-    url = f"https://barttorvik.com/trank.php?year={year}&json=1"
+    url = f"https://barttorvik.com/{year}_team_results.json"
     resp = requests.get(url, timeout=30)
     resp.raise_for_status()
     data = resp.json()
 
+    # Array format: [rank, team, conf, record, ..., adjoe(29), adjde(30), ...]
     teams = {}
     for row in data:
-        name = row.get("team", "")
-        adj_em = float(row.get("adjoe", 0)) - float(row.get("adjde", 0))
+        name = row[1]
+        adj_oe = float(row[29])
+        adj_de = float(row[30])
+        adj_em = adj_oe - adj_de
         teams[name] = {
             "name": name,
             "adj_em": adj_em,
-            "adj_oe": float(row.get("adjoe", 0)),
-            "adj_de": float(row.get("adjde", 0)),
-            "barthag": float(row.get("barthag", 0)),
-            "wab": float(row.get("wab", 0)),
+            "adj_oe": adj_oe,
+            "adj_de": adj_de,
+            "barthag": float(row[8]),
+            "wab": float(row[41]) if len(row) > 41 else 0,
         }
     return teams
 
@@ -208,7 +211,7 @@ def generate_bracket(matchups, ratings, agent_id, strategy="balanced", seed=None
 
 def main():
     parser = argparse.ArgumentParser(description="Generate a March Madness bracket")
-    parser.add_argument("--agent-id", required=True, help="Your agent name (alphanumeric, hyphens, underscores)")
+    parser.add_argument("--agent-id", required=False, default=None, help="Your agent name (alphanumeric, hyphens, underscores)")
     parser.add_argument("--strategy", default="balanced", choices=["chalk", "balanced", "contrarian", "chaos"])
     parser.add_argument("--seed", type=int, default=None, help="Random seed for reproducibility")
     parser.add_argument("--matchups", default="matchups.json", help="Path to matchups file")
@@ -225,6 +228,10 @@ def main():
         for i, t in enumerate(sorted_teams[:30]):
             print(f"#{i+1:>2} {t['name']:<25} AdjEM={t['adj_em']:>+6.2f}")
         return
+
+    if not args.agent_id:
+        print("ERROR: --agent-id is required")
+        sys.exit(1)
 
     matchups = load_matchups(args.matchups)
     bracket = generate_bracket(matchups, ratings, args.agent_id, args.strategy, args.seed)

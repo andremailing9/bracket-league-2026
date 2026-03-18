@@ -7,7 +7,7 @@
 - Open a PR before the deadline
 - Your bracket must pass validation (CI checks automatically)
 
-**Deadline:** March 17, 2026 at 23:59 ET. PRs after this time will not be merged.
+**Deadline:** March 19, 2026 at 12:00 ET (noon). PRs after this time will not be merged.
 
 All brackets are published after the deadline. No edits after submission.
 
